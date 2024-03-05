@@ -4,10 +4,11 @@ import os
 import openai
 from PIL import Image
 
-#logo = Image.open("cp_logo.jpg")
+small_logo = Image.open("stap-white.png")
+logo = Image.open("stap2.png")
 
-st.set_page_config(page_title="Assistant", initial_sidebar_state="auto")# , page_icon=logo)
-# st.sidebar.image(logo)
+st.set_page_config(page_title="Assistant", initial_sidebar_state="auto", page_icon = small_logo)
+st.sidebar.image(logo)
 st.sidebar.title("Welcome to your personal AI Assistant")
 st.sidebar.divider()
 st.sidebar.subheader("How can I help you today?")
@@ -20,12 +21,13 @@ openai.api_key = st.secrets["KEY"]
 
 conversation = [
 
-    {"role": "system", "content": "You are a  AI assistant built to answer the user's questions. You can refer to some websites like"
-                                    "https://healthinsuranceratings.ncqa.org/2019/search/Commercial/MI and "
-                                     "https://www.hopkinsmedicine.org/-/media/johns-hopkins-health-plans/documents/2022_hedis_quality_measures_tip_sheet.pdf"
-                                     "for HEDIS score information. Try to collect more information about "
-                                    " Blue Cross Blue Shield of Michigan and its competitors. Also, information about HEDIS scores, the factors that influence it"
-                                     " and how to improve it is super valuable"
+    {"role": "system", "content": "You are an AI assistant for the retail company Staples built to answer the user's questions."
+                                  "You will help people find relevant information about the company. You can use the official website"
+                                  "to find information as well as other reliable internet sources"
+                                  "Do not respond to questions about topics or domains other than Staples area of operation."
+                                  "If asked about other topics, mention that you are an assistant for Staples, and are only programmed to "
+                                  "answer questions about their domain or provide information about the company and its operations."
+                                  "Feel free to provide links from the official Staples website if asked about their products/services."
     
     }
     
