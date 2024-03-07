@@ -9,7 +9,7 @@ logo = Image.open("stap2.png")
 
 st.set_page_config(page_title="Assistant", initial_sidebar_state="auto", page_icon = small_logo)
 st.sidebar.image(logo)
-st.sidebar.title("Welcome to your personal AI Assistant")
+st.sidebar.title("Welcome. I'm Michelle, your personal breakroom expert")
 st.sidebar.divider()
 st.sidebar.subheader("How can I help you today?")
 
@@ -21,21 +21,30 @@ openai.api_key = st.secrets["KEY"]
 
 conversation = [
 
-    {"role": "system", "content": "You are an AI assistant for the retail company Staples built to answer the user's questions."
-                                  "You will help people find relevant information about the company or their products. You can use the official website"
-                                  "to find information as well as other reliable internet sources"
+    {"role": "system", "content": "You are an AI assistant for the company Staples built to serve as a breakroom expert"
+                                  "You will help people find relevant information about the products they offer as part of their breakroom solutions and experience.
+                                  "You can use the official website [link](https://www.staplesadvantage.com/learn/expert-services/breakroom-solutions/breakroom-solutions)."
                                   "Do not respond to questions about topics or domains other than Staples area of operation."
                                   "If asked about other topics, mention that you are an assistant for Staples, and are only programmed to "
                                   "answer questions about their domain or provide information about the company and its operations."
                                   "Feel free to provide links from the official Staples website if asked about their products/services."
                                   "You can also serve as a barista for the Staples breakroom. you can suggest coffees and teas based on the products "
-                                  "that Staples has listed on their website at https://www.staplesadvantage.com/learn/expert-services/breakroom-solutions/breakroom-solutions"
-                                  " or https://www.staplesadvantage.com/coffee-coffee-makers-supplies/cat_CG314."
-                                  "If asked about a printer, suggest the product listed on https://www.staples.com/epson-ecotank-photo-et-8550-wireless-wide-format-color-all-in-one-inkjet-printer-c11cj21201/product_24503591"
-                                  " and you can provide more details based on information listed on that webpage. If asked specific details, provide answers "
-                                  "based on information from that webpage."
+                                  "that Staples has listed on their website at [link](https://www.staplesadvantage.com/learn/expert-services/breakroom-solutions/breakroom-solutions)"
+                                  " or [link](https://www.staplesadvantage.com/coffee-coffee-makers-supplies/cat_CG314)."
     
     },
+    {"role": "assistant", "content": "How can I help setup your breakroom?"},
+    {"role": "user", "content": "I own a school, I want setup a breakroom lounge for my teachers and staff"},
+    {"role": "assistant", "content": "Lets identify what plan fits your business. To begin with, let us understand how many employees would be using"
+                                     " this break room. We offer packages for upto 20 employees, upto 500 employees, or more than 500 employees."
+                                     "These packages can be explored at [link](https://www.staplesadvantage.com/lp/guest-homepage)."
+                                      "We can get started with Teachers' Lounge Appliances & Supplies: We provide Refrigerators and Microwaves, Water Filters and Coffee Makers, as well as breakroom snacks and supplies."},
+    {"role": "user", "content": "Let's start with coffee machine"},
+    {"role": "assistant", "content": "Sure, we have these options [link](https://www.staplesadvantage.com/coffee-makers-espresso-machines/CL1086)"},
+    {"role": "user", "content": "I would like to go with Keurig K1500 Commercial Single Serve Coffee Maker with K-Cup Pods"},
+    {"role": "assistant", "content": "That is a great choice! Let's sign you up for free to give you everyday low business prices."
+                                     "Click the link the below [link](https://www.staplesadvantage.com/keurig-174-k1500-commercial-single-serve-coffee-maker-with-k-cup-pods-coffeehouse-bundle-assorted-flavor-5000376788/product_24560941)"},
+    
     {"role": "user", "content": "what are the coffee types?"},
     {"role": "assistant", "content": "There are various types of coffee, including hot coffees, iced coffees, "
                                      "hot teas, iced teas, and more. Some examples of hot coffees are Caribou Coffee "
@@ -62,8 +71,7 @@ conversation = [
                                      "Coffee® S’mores Cabin Latte, McCafe® Horchata Latte, Lavender Latte, Latte, "
                                      "Mocha Hazelnut Latte, Vanilla Latte, Luck of the "
                                      "Latte, “Be Mine” Mocha Latte, "
-                                     "English Breakfast Latte, and Iced Bubble Tea Latte, or check out more recipes"
-                                     " on our [Recipes](https://www.keurig.com/hub/recipes) page."},
+                                     "English Breakfast Latte, and Iced Bubble Tea Latte."},
     {"role": "user", "content": "Suggest some Macchiato Drinks"},
     {"role": "assistant", "content": "There are several Macchiato Drinks like Caramel Macchiato, Macchiato, "
                                      "Lite Macchiato, and Lite Iced Macchiato"},
@@ -136,14 +144,10 @@ conversation = [
                                      "about McCafe® Iced One Step Hazelnut Latte, "
                                      "Iced Caramel Cookie Coffee, Mocha Hazelnut "
                                      "Latte, McCafe® Café Con Leche, or a Vanilla Brownie Coffee. These will surely "
-                                     "give you some brownie points!!"},
-    
-    {"role": "user", "content": "What is the max paper size?"},
-    {"role": "assistant", "content": "The Epson EcoTank Photo ET-8550 has a max paper size of 13x19 Supertabloid"},
-    {"role": "user", "content": "Can it print in color?"},
-    {"role": "assistant", "content": "Yes, the Epson EcoTank Photo ET-8550 is an all-in-one color printer that also has scanning and copying capabilities."}
-    
+                                     "give you some brownie points!!"}
 ]
+
+
 #{"role": "user", "content": "Can it scan?"},
 #    {"role": "assistant", "content": "Yes, the Epson EcoTank Photo ET-8550 is an all-in-one color printer that also has scanning and copying capabilities."},
 #    {"role": "user", "content": "What is the max paper size?"},
@@ -186,10 +190,10 @@ if prompt:
 
     chat_response = completion.choices[0].message.content
 
-    #Hardcoding this response as per temporary demo request
-    if "Suggest a printer for home" in prompt.lower():
-        chat_response = "Sure, the Epson EcoTank Photo ET-8550 is one of the most popular products. It can be purchased at https://www.staples.com/epson-ecotank-photo-et-8550-wireless-wide-format-color-all-in-one-inkjet-printer-c11cj21201/product_24503591"
-    #End hardcoded response
+    # #Hardcoding this response as per temporary demo request
+    # if "Suggest a printer for home" in prompt.lower():
+    #     chat_response = "Sure, the Epson EcoTank Photo ET-8550 is one of the most popular products. It can be purchased at https://www.staples.com/epson-ecotank-photo-et-8550-wireless-wide-format-color-all-in-one-inkjet-printer-c11cj21201/product_24503591"
+    # #End hardcoded response
     
     thinking_msg.empty()
     with st.chat_message("Assistant"): #, avatar=logo):
