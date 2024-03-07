@@ -5,7 +5,7 @@ import openai
 from PIL import Image
 
 small_logo = Image.open("stap-white.png")
-logo = Image.open("stap2.png")
+logo = Image.open("staples-lady.png")
 
 st.set_page_config(page_title="Assistant", initial_sidebar_state="auto", page_icon = small_logo)
 st.sidebar.image(logo)
