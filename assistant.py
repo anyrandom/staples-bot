@@ -10,7 +10,7 @@ logo = Image.open("staples-lady.png")
 st.set_page_config(page_title="Assistant", initial_sidebar_state="auto", page_icon = small_logo)
 st.sidebar.image(logo)
 st.sidebar.title("Welcome. I'm Michelle, your personal breakroom expert")
-st.sidebar.divider()
+# st.sidebar.divider()
 st.sidebar.subheader("How can I help you today?")
 
 openai.api_type = st.secrets["TYPE"]
