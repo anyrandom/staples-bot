@@ -156,7 +156,7 @@ conversation = [
 #    {"role": "assistant", "content": " "},
 
 if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "assistant", "content": "How may I help you today?"}]
+    st.session_state.messages = [{"role": "assistant", "content": "Hello, how can I help setup your breakroom?"}]
 
 for message in st.session_state.messages:
     if message["role"] == "assistant":
