@@ -139,7 +139,7 @@ conversation = [
                                      "give you some brownie points!!"},
     
     {"role": "user", "content": "What is the max paper size?"},
-    {"role": "assistant", "content": "The Epson EcoTank Photo ET-8550 has a max paper size of 13" x 19" Supertabloid"},
+    {"role": "assistant", "content": "The Epson EcoTank Photo ET-8550 has a max paper size of 13x19 Supertabloid"},
     {"role": "user", "content": "Can it print in color?"},
     {"role": "assistant", "content": "Yes, the Epson EcoTank Photo ET-8550 is an all-in-one color printer that also has scanning and copying capabilities."}
     
