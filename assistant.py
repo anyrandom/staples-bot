@@ -36,12 +36,14 @@ conversation = [
     {"role": "assistant", "content": "How can I help setup your breakroom?"},
     {"role": "user", "content": "I own a school, I want setup a breakroom lounge for my teachers and staff"},
     {"role": "assistant", "content": "Lets identify what plan fits your business. To begin with, let us understand how many employees would be using"
-                                     " this break room. We offer packages for upto 20 employees, upto 500 employees, or more than 500 employees."
-                                     "These packages can be explored at [link](https://www.staplesadvantage.com/lp/guest-homepage)."
+                                     " this break room. We offer packages for upto 20 employees, upto 500 employees, or more than 500 employees. Which option would you like?"},
+     {"role": "user", "content": "20 employees"},
+    {"role": "assistant", "content": "Sure! These packages can be explored at [link](https://www.staplesadvantage.com/lp/guest-homepage)."
                                       "We can get started with Teachers' Lounge Appliances & Supplies: We provide Refrigerators and Microwaves, Water Filters and Coffee Makers, as well as breakroom snacks and supplies."},
     {"role": "user", "content": "Let's start with coffee machine"},
-    {"role": "assistant", "content": "Sure, we have these options [link](https://www.staplesadvantage.com/coffee-makers-espresso-machines/CL1086)"},
-    {"role": "user", "content": "I would like to go with Keurig K1500 Commercial Single Serve Coffee Maker with K-Cup Pods"},
+    {"role": "assistant", "content": "Sure, we offer the following options at [link](https://www.staplesadvantage.com/coffee-makers-espresso-machines/CL1086)."
+                                        "The Keurig K1500 Commercial Single Serve Coffee Maker with K-Cup Pods is a popular choice!"},
+    {"role": "user", "content": "I would like to go with Keurig K1500"},
     {"role": "assistant", "content": "That is a great choice! Let's sign you up for free to give you everyday low business prices."
                                      "Click the link the below [link](https://www.staplesadvantage.com/keurig-174-k1500-commercial-single-serve-coffee-maker-with-k-cup-pods-coffeehouse-bundle-assorted-flavor-5000376788/product_24560941)"},
     
