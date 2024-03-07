@@ -137,9 +137,9 @@ conversation = [
                                      "Iced Caramel Cookie Coffee, Mocha Hazelnut "
                                      "Latte, McCafe® Café Con Leche, or a Vanilla Brownie Coffee. These will surely "
                                      "give you some brownie points!!"},
-    {"role": "user", "content": "Can you suggest a good printer for home"},
-    {"role": "assistant", "content": "Sure, the Epson EcoTank Photo ET-8550 is one of the most popular products. It can be purchased at"
-    "https://www.staples.com/epson-ecotank-photo-et-8550-wireless-wide-format-color-all-in-one-inkjet-printer-c11cj21201/product_24503591"},
+    
+    {"role": "user", "content": "What is the max paper size?"},
+    {"role": "assistant", "content": "The Epson EcoTank Photo ET-8550 has a max paper size of 13" x 19" Supertabloid"},
     {"role": "user", "content": "Can it print in color?"},
     {"role": "assistant", "content": "Yes, the Epson EcoTank Photo ET-8550 is an all-in-one color printer that also has scanning and copying capabilities."}
     
@@ -186,6 +186,11 @@ if prompt:
 
     chat_response = completion.choices[0].message.content
 
+    #Hardcoding this response as per temporary demo request
+    if "Suggest a printer for home" in prompt.lower():
+        chat_response = "Sure, the Epson EcoTank Photo ET-8550 is one of the most popular products. It can be purchased at https://www.staples.com/epson-ecotank-photo-et-8550-wireless-wide-format-color-all-in-one-inkjet-printer-c11cj21201/product_24503591"
+    #End hardcoded response
+    
     thinking_msg.empty()
     with st.chat_message("Assistant"): #, avatar=logo):
         st.write(chat_response)
